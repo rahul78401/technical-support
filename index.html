@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Basics</title>
+  <meta name="description" content="JavaScript basics in simple English, step by step, with code you can run.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111'/%3E%3Ccircle cx='23' cy='9' r='3' fill='%231e7a4c'/%3E%3Ctext x='10' y='23' font-family='Arial' font-weight='700' font-size='18' fill='%23fff'%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/modules.css">
+  <link rel="stylesheet" href="css/js.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <button class="icon-btn only-mobile" id="nav-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+    </button>
+    <a class="brand" href="#intro" aria-label="Home">
+      <span class="brand-mark">J</span>
+      <span class="brand-name">JavaScript Basics</span>
+      <span class="brand-sub">Step by step</span>
+    </a>
+  </header>
+
+  <aside class="sidebar" id="sidebar" aria-label="Contents">
+    <nav id="nav"></nav>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="main">
+
+    <!-- ===================== INTRODUCTION ===================== -->
+    <section class="page" id="intro" data-title="Introduction">
+      <p class="eyebrow">Learning guide</p>
+      <h1 class="display">JavaScript Basics</h1>
+      <p class="lead">JavaScript is the language that makes websites and servers do things. This guide teaches it in simple English, one small step at a time.</p>
+
+      <div class="block">
+        <h2>How to use this guide</h2>
+        <ol class="steps">
+          <li>Open a session and read one step at a time.</li>
+          <li>Press <strong>Run</strong> under any code to see what it prints.</li>
+          <li>Change the code and run it again. This is the best way to learn.</li>
+          <li>Press <strong>Present</strong> (or the P key) to show a session on a big screen.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h2>Sessions</h2>
+        <div class="cards">
+          <a class="card" href="#session-0"><div class="card-top"><span class="card-num">Session 0</span></div><h3>How JavaScript Runs</h3><p>Three ways to call JavaScript.</p></a>
+          <a class="card" href="#session-1"><div class="card-top"><span class="card-num">Session 1</span></div><h3>Variables</h3><p>Store data with let and const.</p></a>
+          <a class="card" href="#session-2"><div class="card-top"><span class="card-num">Session 2</span></div><h3>Data Types</h3><p>Text, numbers, true/false, lists and objects.</p></a>
+          <a class="card" href="#session-3"><div class="card-top"><span class="card-num">Session 3</span></div><h3>Operators</h3><p>Do maths and compare values.</p></a>
+          <a class="card" href="#session-4"><div class="card-top"><span class="card-num">Session 4</span></div><h3>Conditions</h3><p>Run code only when something is true.</p></a>
+          <a class="card" href="#session-5"><div class="card-top"><span class="card-num">Session 5</span></div><h3>Loops</h3><p>Repeat code without copying it.</p></a>
+          <a class="card" href="#session-6"><div class="card-top"><span class="card-num">Session 6</span></div><h3>Functions</h3><p>Write code once, call it many times.</p></a>
+          <a class="card" href="#session-7"><div class="card-top"><span class="card-num">Session 7</span></div><h3>Arrays</h3><p>Lists, plus map, filter, find and reduce.</p></a>
+          <a class="card" href="#session-8"><div class="card-top"><span class="card-num">Session 8</span></div><h3>Objects</h3><p>Keep related details together.</p></a>
+          <a class="card" href="#session-9"><div class="card-top"><span class="card-num">Session 9</span></div><h3>Spread and Rest</h3><p>Copy, open up and gather values.</p></a>
+          <a class="card" href="#session-10"><div class="card-top"><span class="card-num">Session 10</span></div><h3>Promises and Async/Await</h3><p>Handle work that takes time.</p></a>
+          <a class="card" href="#session-11"><div class="card-top"><span class="card-num">Session 11</span></div><h3>Important Concepts</h3><p>Scope, closures, event loop, this and more.</p></a>
+          <a class="card" href="#session-12"><div class="card-top"><span class="card-num">Session 12</span></div><h3>Learning Roadmap</h3><p>What to learn, in order.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SESSION 0 ===================== -->
+    <section class="page" id="session-0" data-title="How JavaScript Runs" data-number="0" hidden>
+      <p class="eyebrow">Session 0</p>
+      <h1 class="display">How JavaScript Runs</h1>
+      <p class="lead">Before the language, see where it runs and how you call it.</p>
+
+      <div class="block">
+        <h2><span class="n">1</span>What is JavaScript?</h2>
+        <p class="line">A programming language. It started in the browser to make pages interactive. With <strong>Node.js</strong> it also runs on servers, which is how backends are built.</p>
+        <figure class="figure" data-fig="flow" data-args='{"items":[{"t":"Your code","s":"A .js file"},{"t":"JavaScript engine","s":"Reads and runs it","c":"amber"},{"t":"Output","s":"Result on screen","c":"green"}],"opts":{"w":170,"gap":50}}'>
+          <figcaption>You write the code. The engine runs it. You see the result.</figcaption>
+        </figure>
+      </div>
+
+      <div class="block">
+        <h2><span class="n">2</span>Way 1: In this page</h2>
+        <p class="line">Every code box in this guide has a <strong>Run</strong> button. The code runs inside your browser, and <code>console.log</code> prints below it.</p>
+        <div class="runbox"><div class="code-bar"><span>Try it. Press Run.</span><button type="button" class="run-btn">Run</button></div><textarea class="run-src" rows="3" spellcheck="false" aria-label="JavaScript code">console.log("Hello from JavaScript");
+console.log(2 + 3);</textarea><pre class="run-out" aria-live="polite">Output appears here.</pre></div>
+      </div>
+
+      <div class="block">
+        <h2><span class="n">3</span>Way 2: In a web page</h2>
+        <p class="line">Put your code inside a <code>script</code> tag in an HTML file. The browser runs it when the page opens. Open the browser console (F12) to see the <code>console.log</code> output.</p>
+        <div class="code"><div class="code-bar">index.html</div><pre><code>&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;My page&lt;/h1&gt;
+
+    &lt;script&gt;
+      console.log("Hello from the browser");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+        <p class="line">Or keep the code in its own file and load it: <code>&lt;script src="app.js"&gt;&lt;/script&gt;</code></p>
+      </div>
+
+      <div class="block">
+        <h2><span class="n">4</span>Way 3: With Node.js</h2>
+        <p class="line">No browser needed. Save your code in a file and run it from the terminal. This is how backend code and NestJS run.</p>
+        <div class="code"><div class="code-bar">app.js</div><pre><code>console.log("Hello from Node.js");</code></pre></div>
+        <div class="code"><div class="code-bar">Terminal</div><pre><code>node app.js</code></pre></div>
+      </div>
+
+      <div class="block">
+        <h2><span class="n">5</span>Write it, then call it</h2>
+        <p class="line">You will see this idea again and again. <strong>Writing</strong> a function only describes it. The code runs when you <strong>call</strong> it.</p>
+        <div class="callrow"><div class="def"><b>1. Write it (definition)</b><code>function greet() {<br>&nbsp;&nbsp;console.log("Hello");<br>}</code></div><div class="call"><b>2. Use it (call)</b><code>greet();</code></div></div>
+      </div>
+    </section>
+
+    <!-- ===================== SESSIONS 1 to 11 (js/content/*.js) ===================== -->
+    <div data-include="session-1"></div>
+    <div data-include="session-2"></div>
+    <div data-include="session-3"></div>
+    <div data-include="session-4"></div>
+    <div data-include="session-5"></div>
+    <div data-include="session-6"></div>
+    <div data-include="session-7"></div>
+    <div data-include="session-8"></div>
+    <div data-include="session-9"></div>
+    <div data-include="session-10"></div>
+    <div data-include="session-11"></div>
+
+    <!-- ===================== SESSION 12 ===================== -->
+    <section class="page" id="session-12" data-title="Learning Roadmap" data-number="12" hidden>
+      <p class="eyebrow">Session 12</p>
+      <h1 class="display">Learning Roadmap</h1>
+      <p class="lead">What to learn, in order. Steps 1 to 4 are covered in this guide.</p>
+
+      <div class="block">
+        <h2>Six steps</h2>
+        <table class="tbl"><thead><tr><th>Step</th><th>Topic</th><th>What it covers</th></tr></thead><tbody>
+          <tr><td>1</td><td>Fundamentals</td><td>Variables, data types, operators, conditions, loops</td></tr>
+          <tr><td>2</td><td>Functions and data</td><td>Functions, arrays, objects, map, filter, reduce</td></tr>
+          <tr><td>3</td><td>Advanced JavaScript</td><td>Closures, hoisting, scope, <code>this</code>, prototypes</td></tr>
+          <tr><td>4</td><td>Asynchronous JavaScript</td><td>Callbacks, promises, async/await, event loop</td></tr>
+          <tr><td>5</td><td>Backend JavaScript</td><td>Modules, CommonJS, ES Modules, error handling, streams, events</td></tr>
+          <tr><td>6</td><td>Practical Node.js</td><td>Express, NestJS, database operations, APIs, performance</td></tr>
+        </tbody></table>
+      </div>
+
+      <div class="block">
+        <h2>Where to focus</h2>
+        <p class="line">If you already use Node.js and NestJS, do not spend weeks on basic syntax. Go deep on these:</p>
+        <ul class="topics">
+          <li>Closures</li>
+          <li>The event loop</li>
+          <li>Promises</li>
+          <li><code>this</code></li>
+          <li>Prototypes</li>
+          <li>Memory management</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="pres-bar" id="pres-bar" hidden>
+    <button type="button" class="pres-exit" id="pres-exit">Exit</button>
+    <span class="pres-title" id="pres-title"></span>
+    <span class="pres-count" id="pres-count"></span>
+    <button type="button" class="pres-nav" id="pres-prev" aria-label="Previous slide"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3 5 8l5 5"/></svg></button>
+    <button type="button" class="pres-nav" id="pres-next" aria-label="Next slide"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg></button>
+  </div>
+
+  <script src="js/illustrations.js"></script>
+  <script src="js/helpers.js"></script>
+  <script src="js/runner.js"></script>
+  <script src="js/content/basics.js"></script>
+  <script src="js/content/functions.js"></script>
+  <script src="js/content/async.js"></script>
+  <script src="js/content/concepts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
