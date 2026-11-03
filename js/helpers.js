@@ -57,7 +57,14 @@
 
   /* A whole module: landing page (what you will learn + section cards) and one page per section.
      spec: { id, prefix, num, title, lead, tag, learn: [], subs: [{ key, title, lead, blocks: [] }], extra: [] } */
+  /* Quiz section: each item is [question, optional code shown under it, solution html]. Solution opens on click. */
+  const quizBlocks = (items) => items.map(([q, c, sol], i) =>
+    `<div class="block"><h2><span class="n">Q${i + 1}</span>${q}</h2>${c ? code(c) : ''}` +
+    `<details class="task"><summary><span class="show">Show solution</span><span class="hide">Hide solution</span></summary><div class="solution">${sol}</div></details></div>`);
+
   const module = (spec) => {
+    const quiz = window.Ops.quizzes && Ops.quizzes[spec.num];
+    if (quiz) spec = { ...spec, learn: [...(spec.learn || []), '10 quick quiz questions'], subs: [...spec.subs, { key: 'quiz', title: 'Quiz', lead: '10 easy questions. Try each one, then press Show solution.', blocks: quizBlocks(quiz) }] };
     const subId = (s) => `${spec.prefix}-${s.key}`;
     /* Sections numbered 1, 2, 3...; a nested section (noCard) gets its own number */
     let n = 0;
